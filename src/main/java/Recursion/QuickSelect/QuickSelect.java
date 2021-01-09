@@ -10,6 +10,14 @@ public class QuickSelect {
 
     }
 
+    private void sort(int first_index, int last_index)
+    {
+        for(int i=1; i<container.length+1; ++i)
+        {
+            System.out.print(quickSelect(first_index,last_index,i-1)+" "); // call quickselect per index to sort
+        }
+    }
+
     private int quickSelect(int first_index, int last_index, int k)  //  k = k-1 due to index starting at 0
     {
         int pivot_index = partition_array(first_index, last_index);
@@ -49,8 +57,10 @@ public class QuickSelect {
     public static void main(String[] args) {
         QuickSelect quickSelect = new QuickSelect();
         quickSelect.container = new int[]{1, -5, 10, 55, 2, 3, -7, 7, 11, 100};
-        int element = quickSelect.quickSelect(0, container.length - 1, 1); // second largest
+        quickSelect.sort(0, container.length-1);
+        int element = quickSelect.quickSelect(0, container.length - 1, 2); // second largest
         System.out.println("element is = " + element);
+
 
 
     }
